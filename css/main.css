@@ -1,0 +1,1122 @@
+/* General
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body{
+  text-align: center;
+  color: var(--black);
+}
+
+/* Colors
+   ========================================================================== */
+
+:root {
+  --blue: rgba(33, 150, 243, 1);
+  --black: rgba(56, 46, 52, 1);
+  --deep-black: rgba(40, 40, 40, 1);
+  --blue-opacity: rgba(33, 150, 243, 0.75);
+  --mid-grey: rgba(93, 93, 93, 1);
+  --red: rgba(244, 67, 54, 1);
+  --red-opacity: rgba(244, 67, 54, 0.75);
+  --ultra-light-grey: rgba(240, 240, 240, 1);
+  --light-grey: rgba(154, 154, 154, 1);
+  --yellow: rgba(233, 201, 0, 1);
+  --white-opacity: rgba(255, 255, 255, 0.75);
+  --white: rgba(255, 255, 255, 1);
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Typography
+   ========================================================================== */
+
+h1 {
+  font-family: 'Luckiest Guy', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 8rem;
+  line-height: 8.5rem;
+  text-shadow: 2px 1px 0px var(--white-opacity);
+}
+
+h2 {
+  font-size: 2.75rem;
+  line-height: 4rem;
+  margin-bottom: 3rem;
+  color: var(--black);
+}
+
+h3 {
+  font-size: 1.75rem;
+  line-height: 2.75rem;
+  margin-top: -3rem;
+  color: var(--light-grey);
+  font-style: italic;
+}
+
+h4 {
+  font-size: 1.75rem;
+  line-height: 2.75rem;
+  margin-top: -1.5rem;
+}
+
+h4, p {
+  font-family: 'Lora', sans-serif;
+}
+
+h5 {
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 100;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+}
+
+p, a {
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+  color: var(--mid-grey);
+}
+
+span {
+  color: var(--yellow);
+  background-color: var(--black);
+  padding: 0.25rem 0.5rem;
+  text-shadow: none;
+  border-radius: 0.25rem;
+}
+
+/* General Classes
+   ========================================================================== */
+
+#hero-background, .hero, .text-background, .text, .gallery, footer {
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  margin: 8em 2em 12em 2em;
+  width: 100%;
+}
+
+/* Hero Area
+   ========================================================================== */
+
+.hero {
+  overflow: hidden;
+}
+
+.hero h4 {
+  text-shadow: 2px 1px 0px var(--yellow);
+}
+
+#hero-background {
+  width: 100%;
+  background-image: url(../img/skretch4.png);
+  background-size: cover;
+  background-color: var(--yellow);
+  /* Old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  /* background: -webkit-linear-gradient(-45deg, #f2cb31, #e9c030); */
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  /* background: linear-gradient(-45deg, #f2cb31, #e9c030);*/
+}
+
+#hero-text-btn {
+  display: block;
+  position: absolute;
+  top: 0px;
+  margin: 6rem 0;
+}
+
+/* Hero Grid
+   ========================================================================== */
+
+#grid-wrap {
+  width:1600px;
+  height: 800px;
+}
+
+.grid-hero {
+  display: inline-grid;
+  width: 100%;
+  height: 100%;
+  grid-template: repeat(12, 1fr) / repeat(16, 1fr);
+  grid-gap: 0.5rem 0.5rem;
+}
+
+/* Circle */
+
+.a {
+  grid-area: 1 / 1 / span 4 / span 2;
+  position: relative;
+  height: 280px;
+  width: 280px;
+  border-radius: 100%;
+  background-color: var(--red);
+  opacity: 0.25;
+  top: -20px;
+  left: -120px;
+}
+
+/* Cross */
+
+.b {
+  grid-area: 1 / 1 / span 1 / span 1;
+  background: var(--yellow);
+  height: 115px;
+  position: relative;
+  width: 40px;
+  top: 8rem;
+  left: -4rem;
+  transform: rotate(45deg);
+}
+
+.b:after {
+  background: var(--yellow);
+  content: "";
+  height: 40px;
+  left: -40px;
+  position: absolute;
+  top: 40px;
+  width: 115px;
+}
+
+/* Cross 2 */
+
+.c {
+  grid-area: 1 / 1 / span 1 / span 1;
+  background: var(--black);
+  height: 85px;
+  position: relative;
+  width: 32px;
+  top: 12rem;
+  left: -8rem;
+  transform: rotate(45deg);
+}
+
+.c:after {
+  background: var(--black);
+  content: "";
+  height: 32px;
+  left: -27px;
+  position: absolute;
+  top: 27px;
+  width: 85px;
+}
+
+/* Bugs */
+
+.d {
+  grid-area: 1 / 1 / span 5 / span 2;
+}
+
+.e {
+  grid-area: 5 / 2 / span 5 / span 2;
+}
+
+.f, .g {
+  grid-area: 4 / 13 / span 9 / span 3;
+}
+
+.h {
+  grid-area: 1 / 10 / span 2 / span 4;
+  z-index: 98;
+}
+
+.i {
+  grid-area: 1 / 16 / span 1 / span 1;
+  z-index: 99;
+}
+
+.d img, .e img {
+  width: auto;
+  filter: sepia(80%);
+  height: 300px;
+  opacity: 0.85;
+}
+
+.f img {
+  height: 860px;
+  width: auto;
+  opacity: 0.85;
+}
+
+.g img {
+  height: 860px;
+  width: auto;
+  filter: sepia(80%);
+  opacity: 0.85;
+}
+
+/* Ruler */
+
+.h img {
+  height: 65px;
+  width: auto;
+}
+
+/* Contact icon */
+
+.i img {
+  background-color: var(--black);
+  width: 5.25rem;
+  height: 5.25rem;
+  border-radius: 100%;
+  position: relative;
+  top: 1.5rem;
+  right: 1.5rem;
+  padding: 1.5rem;
+}
+
+/* Used to display grid stroke */
+/*
+.box {
+  border: 2px solid black;
+}
+*/
+
+/* Text
+   ========================================================================== */
+
+.text {
+  background-color: white;
+  box-shadow: -1rem 0 3rem var(--shadow);
+  transform: skewY(1.5deg);
+  margin-top: -2.5rem;
+  margin-bottom: -2.5rem;
+}
+
+.text img {
+  height: 180px;
+  width: auto;
+}
+
+.text .content {
+  transform: skewY(-1.5deg);
+}
+
+/* Gallery
+   ========================================================================== */
+
+.gallery {
+  background-color: var(--ultra-light-grey);
+  background-image: url(../img/skretch-black.png);
+  background-size: cover;
+}
+
+#image-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.img-gallery {
+  background-size: cover;
+  border-radius: 0.5rem;
+}
+
+.a2 {
+  background-image: url(../img/House-Immigration-4-Dummies.jpg);
+  width: 29rem;
+  height: 29rem;
+  margin-right: 2rem;
+}
+
+.b2 {
+  background-image: url(../img/Pond-Immigration-4-Dummies.jpg);
+  width: calc(100% - 31rem);
+  height: 29rem;
+}
+
+.c2 {
+  background-image: url(../img/Suitcase-Immigration-4-Dummies.jpg);
+  width: 100%;
+  height: 450px;
+  background-position: bottom;
+}
+
+
+/* Button
+   ========================================================================== */
+
+.button {
+  min-width: 240px;
+  padding: 0.5em 2em;
+  border: 5px solid var(--black);
+  border-radius:40px;
+  margin: 1.5rem;
+  color: var(--yellow);
+  background-color: var(--black);
+  text-decoration: none;
+}
+
+#outline-btn {
+  background-color: transparent;
+  color: var(--black);
+}
+
+/* Footer
+   ========================================================================== */
+
+footer {
+  background-color: var(--black);
+  text-align: left;
+}
+
+footer .content {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+footer p {
+  font-size: 1.1rem;
+  color: var(--yellow);
+  font-family: "Libre Franklin", sans-serif;
+  margin-left: 0;
+  margin-right: 0;
+  display: inline-block;
+}
+
+footer a {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--yellow);
+}
+
+footer a:hover {
+  color: var(--white);
+}
+
+footer img {
+  height: 5rem;
+  width: auto;
+  margin-left: 2rem;
+}
+
+.image-wrap {
+  position: relative;
+  float:right;
+  top: -1rem;
+}
+
+#no-margin {
+  margin-left: 0;
+}
+
+/* Media Query
+   ========================================================================== */
+
+@media only screen and (min-width: 1024px){
+
+/* Ruleset for Desktop and Landscape iPad*/
+
+  .content {
+    max-width: 1200px;
+  }
+
+/* Hero */
+
+}
+
+@media only screen and (min-width: 921px) and (max-width: 1024px) {
+
+/* Special for Hero */
+
+  .content {
+    max-width: 1024px;
+  }
+
+/* Typography */
+
+  h1 {
+    font-size: 6.5rem;
+    line-height: 7rem;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+  }
+
+/* Hero */
+
+  .f img, .g img {
+    height: 720px;
+  }
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 920px) {
+
+/* Ruleset for 768px - 920px */
+
+  .content {
+    max-width: 920px;
+  }
+
+/* Typography */
+
+  h1 {
+    font-size: 6.5rem;
+    line-height: 7rem;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  h5 {
+    font-size: 1rem;
+    line-height: 1.25rem;
+  }
+
+/* Hero */
+
+  #grid-wrap {
+    height: 680px;
+  }
+
+  #hero-text-btn {
+    margin: 3rem 0;
+  }
+
+  .d img, .e img {
+    opacity: 0.25;
+  }
+
+  .f img, .g img {
+    opacity: 0.1;
+    height: 720px;
+  }
+
+  .h img {
+    height: 56px;
+  }
+
+/* Gallery */
+
+  .a2 {
+    background-image: url(../img/House-Immigration-4-Dummies.jpg);
+    width: calc(50% - 0.5rem);
+    height: 20rem;
+    margin-right: 2rem;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: var(--white);
+  }
+
+  .b2 {
+    background-image: url(../img/Pond-Immigration-4-Dummies.jpg);
+    width: calc(50% - 0.5rem);
+    height: 20rem;
+  }
+
+  .c2 {
+    height: 20rem;
+  }
+}
+
+@media only screen and (min-width: 420px) and (max-width: 768px) {
+
+/* Portrait iPad */
+
+  .content {
+    max-width: 768px;
+    margin: 3em 1em 9em 1em;
+  }
+
+  ul, ol, li, pre, form, p, blockquote, fieldset, input {
+    margin: 0;
+  }
+
+/* Typography */
+
+  h1 {
+    font-size: 13vw;
+    line-height: 15vw;
+  }
+
+  h2 {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+    line-height: 2.5rem;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  h5 {
+    font-size: 2.4vw;
+    line-height: 4vw;
+    letter-spacing: 4px;
+  }
+
+  p, a {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+/* Hero */
+
+  #grid-wrap {
+    height: 660px;
+  }
+
+  #hero-text-btn {
+    margin: 4rem 0;
+  }
+
+  .d img, .e img {
+    opacity: 0;
+  }
+
+  .f img, .g img {
+    opacity: 1;
+    height: 320px;
+  }
+
+  .h img {
+    height: 44px;
+  }
+
+  .f, .g{
+    grid-area: 10 / 1 / span 2 / span 16;
+  }
+
+  .h{
+    grid-area: 1 / 1 / span 1 / span 16;
+  }
+
+  .i img {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 100%;
+    position: relative;
+    top: 1.5rem;
+    right: 1.5rem;
+    padding: 1rem;
+    line-height: 1.5rem;
+  }
+
+/* Button */
+
+  #outline-btn {
+    padding: 0.5em 2em;
+    border: 5px solid var(--black);
+    border-radius: 32px;
+    color: var(--yellow);
+    background-color: var(--black);
+    margin-left: 1.5rem;
+    min-width: 200px;
+  }
+
+/* Text */
+
+  .text img {
+    transform: scale(0.8);
+  }
+
+  .text {
+    margin-top: -0.75rem;
+    margin-bottom: -0.75rem;
+  }
+
+/* Gallery */
+
+  #image-row {
+    display: block;
+    justify-content: center;
+    margin-bottom: 0;
+  }
+
+  .img-gallery {
+    background-size: cover;
+    width: 100%;
+    height: 20rem;
+    margin-right: 0;
+    margin-bottom: 1rem;
+    background-position: left center;
+  }
+
+  .a2 {
+    background-image: url(../img/House-Immigration-4-Dummies.jpg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: var(--white);
+  }
+
+/* Footer */
+
+footer .content {
+    justify-content: center;
+    text-align: center;
+  }
+
+  footer p {
+    margin: 1rem;
+  }
+
+  .image-wrap {
+    position: inherit;
+    float: none;
+    top: 0;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 420px) {
+
+/* Smartphones */
+
+  .content {
+    max-width: 768px;
+    margin: 3em 1em 9em 1em;
+  }
+
+  ul, ol, li, pre, form, p, blockquote, fieldset, input {
+    margin: 0;
+  }
+
+/* Typography */
+
+  h1 {
+    font-size: 13vw;
+    line-height: 15vw;
+  }
+
+  h2 {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+    line-height: 2.5rem;
+  }
+
+  h4 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+  h5 {
+    font-size: 2.6vw;
+    line-height: 4vw;
+    letter-spacing: 4px;
+  }
+
+  p, a {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+/* Hero */
+
+  #grid-wrap {
+    height: 620px;
+  }
+
+  #hero-text-btn {
+    margin: 4rem 0;
+  }
+
+  .d img, .e img {
+    opacity: 0;
+  }
+
+  .f img, .g img {
+    opacity: 1;
+    height: 320px;
+  }
+
+  .h img {
+    height: 44px;
+  }
+
+  .f, .g{
+    grid-area: 10 / 1 / span 2 / span 16;
+  }
+
+  .h{
+    grid-area: 1 / 1 / span 1 / span 16;
+  }
+
+  .i img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
+    position: relative;
+    top: 1.25rem;
+    right: 1.25rem;
+    padding: 0.75rem;
+  }
+
+
+/* Button */
+
+  #outline-btn {
+    padding: 0.5em 2em;
+    border: 5px solid var(--black);
+    border-radius: 32px;
+    color: var(--yellow);
+    background-color: var(--black);
+    margin-left: 1.5rem;
+    min-width: 200px;
+  }
+
+/* Text */
+
+  .text img {
+    transform: scale(0.8);
+  }
+
+  .text {
+    margin-top: -0.75rem;
+    margin-bottom: -0.75rem;
+  }
+
+/* Gallery */
+
+  #image-row {
+    display: block;
+    justify-content: center;
+    margin-bottom: 0;
+  }
+
+  .img-gallery {
+    background-size: cover;
+    width: 100%;
+    height: 20rem;
+    margin-right: 0;
+    margin-bottom: 1rem;
+    background-position: left center;
+  }
+
+  .a2 {
+    background-image: url(../img/House-Immigration-4-Dummies.jpg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: var(--white);
+  }
+
+/* Footer */
+
+footer .content {
+    justify-content: center;
+    text-align: center;
+  }
+
+  footer p {
+    margin: 1rem;
+  }
+
+  .image-wrap {
+    position: inherit;
+    float: none;
+    top: 0;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+
+/* iPhone 4 */
+
+  .content {
+    max-width: 320px;
+    margin: 2em 1em 6em 1em;
+  }
+
+  ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, fieldset, input {
+    margin: 0.5rem 0;
+  }
+
+/* Typography */
+
+  h1 {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    line-height: 1.75rem;
+  }
+
+  h4 {
+    font-size: 0.8rem;
+    line-height: 1.5rem;
+  }
+
+  h5 {
+    font-size: 2.4vw;
+    line-height: 4vw;
+    letter-spacing: 4px;
+  }
+
+  p, a {
+    font-size: 1.1rem;
+    line-height: 1.75rem;
+  }
+
+  span {
+    padding: 0.1rem 0.45rem;
+  }
+
+/* Hero */
+
+  #grid-wrap {
+    height: 480px;
+  }
+
+  #hero-text-btn {
+    margin: 4rem 0;
+  }
+
+  .d img, .e img {
+    opacity: 0;
+  }
+
+  .f img, .g img {
+    opacity: 1;
+    height: 240px;
+  }
+
+  .f, .g{
+    grid-area: 10 / 1 / span 2 / span 16;
+  }
+
+  .h img {
+    height: 44px;
+  }
+
+  .f, .g{
+    grid-area: 10 / 1 / span 2 / span 16;
+  }
+
+  .h{
+    grid-area: 1 / 1 / span 1 / span 16;
+  }
+
+  .f, .g{
+    grid-area: 10 / 1 / span 2 / span 16;
+  }
+
+  .h{
+    grid-area: 1 / 1 / span 1 / span 16;
+  }
+
+  .i img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
+    position: relative;
+    top: 1.25rem;
+    right: 1.25rem;
+    padding: 0.75rem;
+  }
+
+/* Button */
+
+  #outline-btn {
+    padding: 0.5em 2em;
+    border: 5px solid var(--black);
+    border-radius: 32px;
+    color: var(--yellow);
+    background-color: var(--black);
+    margin-left: 1.5rem;
+    min-width: 200px;
+  }
+
+/* Text */
+
+  .text img {
+    transform: scale(0.6);
+  }
+
+  .text {
+    margin-top: -0.75rem;
+    margin-bottom: -0.75rem;
+  }
+
+/* Gallery */
+
+  #image-row {
+    display: block;
+    justify-content: center;
+    margin-bottom: 0;
+  }
+
+  .img-gallery {
+    background-size: cover;
+    width: 100%;
+    height: 16rem;
+    margin-right: 0;
+    margin-bottom: 1rem;
+    background-position: left center;
+  }
+
+/* Footer */
+
+  footer .content {
+    justify-content: center;
+    text-align: center;
+  }
+
+  footer p {
+    margin: 1rem;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+  }
+
+  footer a {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+  }
+
+  .image-wrap {
+    position: inherit;
+    float: none;
+    top: 0;
+  }
+}
+
+/* Hero Text Animation
+   ========================================================================== */
+
+.distort-text {
+    padding: 10px;
+    animation: distort-text 400ms 1;
+}
+.distort-text:hover {
+    animation: distort-text 400ms infinite;
+}
+@keyframes distort-text {
+    0% {
+        text-shadow: 4px 3px var(--red-opacity), -4px -5px var(--blue-opacity);
+    }
+    25% {
+        text-shadow: -4px -5px var(--red-opacity), 4px 3px var(--blue-opacity);
+    }
+    50% {
+        text-shadow: 4px -3px var(--red-opacity), -7px 3px var(--blue-opacity);
+    }
+    75% {
+        text-shadow: -7px -3px var(--red-opacity), -4px -3px var(--blue-opacity);
+    }
+    100% {
+        text-shadow: -4px 0 var(--red-opacity), 4px -3px var(--blue-opacity);
+    }
+}
+
+
+/* Hero Text Animation
+   ========================================================================== */
+
+.distort-btn {
+    animation: distort-btn 400ms 0;
+}
+.distort-btn:hover {
+    animation: distort-btn 400ms infinite;
+}
+@keyframes distort-btn {
+    0% {
+        box-shadow: 3px 2px var(--red-opacity), -3px -4px #;
+    }
+    25% {
+        box-shadow: -3px -4px var(--red-opacity), 3px 2px var(--blue-opacity);
+    }
+    50% {
+        box-shadow: 3px -2px var(--red-opacity), -6px 2px var(--blue-opacity);
+    }
+    75% {
+        box-shadow: -6px -2px var(--red-opacity), -3px -2px var(--blue-opacity);
+    }
+    100% {
+        box-shadow: -3px 0 var(--red-opacity), 3px -6px var(--blue-opacity);
+    }
+}
+
+/* Hero Text Animation
+   ========================================================================== */
+
+.distort-img {
+    animation: distort-img 300ms 2;
+}
+.distort-img {
+    animation: distort-img 400ms infinite;
+}
+
+@keyframes distort-img {
+    0% {
+        filter: none;
+        opacity: 0.5;
+    }
+    20% {
+        filter:invert(100%);
+        position: relative; top: -50px; left: -25px;
+        opacity: 0.15;
+    }
+    40% {
+        filter: none;
+        position: relative; top: 5px; left: -5px;
+        opacity: 0.5;
+    }
+    60% {
+        filter:invert(100%);
+        position: relative; top: 0px; left: 20px;
+        opacity: 0.35;
+    }
+    80% {
+        filter: none;
+        position: relative; top: 10px; left: -20px;
+        opacity: 0.85;
+    }
+    100% {
+        filter: none;
+        opacity: 0.5;
+    }
+}
+
+/* + Plus Animation
+   ========================================================================== */
+
+
+.c:hover {
+  animation:
+    nudge 5s linear infinite alternate;
+}
+
+@keyframes nudge {
+  0%, 100% {
+    transform: translate(0, 0);
+
+  }
+
+  50% {
+    transform: translate(50px, 0);
+
+  }
+
+  80% {
+    transform: translate(-50px, 0);
+
+  }
+}
