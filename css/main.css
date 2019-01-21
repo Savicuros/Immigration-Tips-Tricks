@@ -5,6 +5,15 @@
   box-sizing: border-box;
 }
 
+::selection {
+  color: var(--black);
+  background: var(--yellow); /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  color: var(--black);
+  background: var(--yellow); /* Gecko Browsers */
+}
+
 body{
   text-align: center;
   color: var(--black);
@@ -15,17 +24,21 @@ body{
 
 :root {
   --blue: rgba(33, 150, 243, 1);
-  --black: rgba(56, 46, 52, 1);
-  --deep-black: rgba(40, 40, 40, 1);
   --blue-opacity: rgba(33, 150, 243, 0.75);
+  --black: rgba(56, 46, 52, 1);
+  --black-opacity: rgba(56, 46, 52, 0.25);
+  --deep-black-opacity: rgba(40, 40, 40, 0.75);
+  --deep-black: rgba(40, 40, 40, 1);
   --mid-grey: rgba(93, 93, 93, 1);
   --red: rgba(244, 67, 54, 1);
   --red-opacity: rgba(244, 67, 54, 0.75);
+  --purple: rgba(190, 40, 100, 1);
   --ultra-light-grey: rgba(240, 240, 240, 1);
   --light-grey: rgba(154, 154, 154, 1);
   --yellow: rgba(233, 201, 0, 1);
-  --white-opacity: rgba(255, 255, 255, 0.75);
+  --yellow-opacity: rgba(233, 201, 0, 0.9);
   --white: rgba(255, 255, 255, 1);
+  --white-opacity: rgba(255, 255, 255, 0.75);
   --shadow: rgba(0, 0, 0, 0.1);
 }
 
@@ -51,7 +64,7 @@ h2 {
 h3 {
   font-size: 1.75rem;
   line-height: 2.75rem;
-  margin-top: -3rem;
+  margin-top: -2rem;
   color: var(--light-grey);
   font-style: italic;
 }
@@ -81,18 +94,22 @@ p, a {
   color: var(--mid-grey);
 }
 
-span {
+#marker {
   color: var(--yellow);
   background-color: var(--black);
-  padding: 0.25rem 0.5rem;
+  padding: 0.15rem 0.35rem;
   text-shadow: none;
   border-radius: 0.25rem;
+}
+
+strong {
+  font-weight:600;
 }
 
 /* General Classes
    ========================================================================== */
 
-#hero-background, .hero, .text-background, .text, .gallery, footer {
+#hero-background, .hero, .text-background, .text, .gallery, .download, .share-links, footer {
   display: flex;
   justify-content: center;
 }
@@ -115,7 +132,7 @@ span {
 
 #hero-background {
   width: 100%;
-  background-image: url(../img/skretch4.png);
+  background-image: url(../img/skretch-hero.png);
   background-size: cover;
   background-color: var(--yellow);
   /* Old browsers */
@@ -130,6 +147,17 @@ span {
   position: absolute;
   top: 0px;
   margin: 6rem 0;
+}
+
+ .hero ::selection {
+  color: var(--yellow);
+  background: var(--black); /* WebKit/Blink Browsers */
+  text-shadow: none;
+}
+ .hero ::-moz-selection {
+  color: var(--yellow);
+  background: var(--black); /* Gecko Browsers */
+  text-shadow: none;
 }
 
 /* Hero Grid
@@ -262,6 +290,7 @@ span {
 /* Contact icon */
 
 .i img {
+  color: var(--yellow);
   background-color: var(--black);
   width: 5.25rem;
   height: 5.25rem;
@@ -270,6 +299,10 @@ span {
   top: 1.5rem;
   right: 1.5rem;
   padding: 1.5rem;
+}
+
+.i img:hover {
+  background-color: var(--purple);
 }
 
 /* Used to display grid stroke */
@@ -291,7 +324,7 @@ span {
 }
 
 .text img {
-  height: 180px;
+  height: 216px;
   width: auto;
 }
 
@@ -311,7 +344,7 @@ span {
 #image-row {
   display: flex;
   justify-content: center;
-  margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 
 .img-gallery {
@@ -319,21 +352,51 @@ span {
   border-radius: 0.5rem;
 }
 
-.a2 {
-  background-image: url(../img/House-Immigration-4-Dummies.jpg);
+.img-overlay {
+  color: var(--black);
+  width: 100%;
+  height: 100%;
+  position: relative;
+  opacity: 0;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-overlay:hover {
+  opacity: 1;
+  background-color: var(--deep-black-opacity);
+}
+
+.icon-gallery {
+  height: 64px;
+  width: 64px;
+  fill: var(--white);
+}
+
+.img-gallery h5 {
+  letter-spacing: 0rem;
+  text-transform: none;
+  margin: 0;
+  color: var(--white);
+}
+
+.b2 {
+  background-image: url(../img/housing_thumb.jpg);
   width: 29rem;
   height: 29rem;
   margin-right: 2rem;
 }
 
-.b2 {
-  background-image: url(../img/Pond-Immigration-4-Dummies.jpg);
+.c2 {
+  background-image: url(../img/pond_thumb.jpg);
   width: calc(100% - 31rem);
   height: 29rem;
 }
 
-.c2 {
-  background-image: url(../img/Suitcase-Immigration-4-Dummies.jpg);
+.a2 {
+  background-image: url(../img/welcome_thumb.jpg);
   width: 100%;
   height: 450px;
   background-position: bottom;
@@ -345,19 +408,120 @@ span {
 
 .button {
   min-width: 240px;
-  padding: 0.5em 2em;
-  border: 5px solid var(--black);
+  font-weight: 500;
+  padding: 0.65em 2em;
   border-radius:40px;
   margin: 1.5rem;
   color: var(--yellow);
-  background-color: var(--black);
+  background-color: var(--purple);
   text-decoration: none;
 }
 
-#outline-btn {
-  background-color: transparent;
-  color: var(--black);
+/* Download
+   ========================================================================== */
+
+.download {
+   background-color: var(--white);
+   transform: skewY(1.5deg);
+   margin-top: -2.5rem;
+   margin-bottom: -2.5rem;
 }
+
+.download .content {
+   margin: 6em 2em;
+   transform: skewY(-1.5deg);
+}
+
+.img-txt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-txt img, .txt {
+  width: 50%;
+  display: inline-block;
+  padding-right: 3rem;
+  z-index: 4;
+}
+
+.download .txt {
+  border-left: 3px dotted var(--black-opacity);
+  text-align: left;
+  padding-left: 3rem;
+}
+
+#p1 {
+  margin-top: 0;
+}
+
+#p2 {
+  margin-bottom: 0;
+}
+
+
+.download .button {
+  color: var(--white);
+}
+
+.download h4 {
+  display: block;
+  margin-top: 2rem;
+  font-family: 'Libre Franklin';
+  font-size: 1.5rem;
+  font-weight: 100;
+}
+
+/* Share Links
+   ========================================================================== */
+
+.share-links {
+  background-color: var(--yellow);
+}
+
+.share-links .content{
+  margin: 8.5em 2em 6em 2em;
+}
+
+.share-links h3 {
+  font-style: normal;
+  color: var(--black);
+  margin-top: 0;
+}
+
+.icon-bar {
+  display: flex;
+  justify-content: center;
+}
+
+/* Style the icon bar links */
+
+.icon-bar svg {
+  fill: var(--black);
+  width: 36px;
+  height: 36px;
+}
+
+.icon-bar a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  transition: all 0.3s ease;
+  border-radius: 100%;
+  background-color: var(--black-opacity);
+  line-height: 32px;
+  margin: 0 0.5rem;
+ }
+
+ .icon-bar a:hover {
+   background-color: var(--black);
+ }
+
+ .icon-bar a:hover svg {
+   fill: var(--yellow);
+ }
+
 
 /* Footer
    ========================================================================== */
@@ -420,37 +584,13 @@ footer img {
 
 /* Hero */
 
-}
-
-@media only screen and (min-width: 921px) and (max-width: 1024px) {
-
-/* Special for Hero */
-
-  .content {
-    max-width: 1024px;
-  }
-
-/* Typography */
-
-  h1 {
-    font-size: 6.5rem;
-    line-height: 7rem;
-  }
-
-  h4 {
-    font-size: 1.5rem;
-    line-height: 2.25rem;
-  }
-
-/* Hero */
-
-  .f img, .g img {
-    height: 720px;
+  #br-1, #br-2 {
+    display: none;
   }
 
 }
 
-@media only screen and (min-width: 768px) and (max-width: 920px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
 
 /* Ruleset for 768px - 920px */
 
@@ -470,27 +610,26 @@ footer img {
     line-height: 2rem;
   }
 
-  h5 {
-    font-size: 1rem;
-    line-height: 1.25rem;
-  }
-
 /* Hero */
+
+  #br-1 {
+    display: none;
+  }
 
   #grid-wrap {
     height: 680px;
   }
 
   #hero-text-btn {
-    margin: 3rem 0;
+    margin: 4rem 0;
   }
 
   .d img, .e img {
-    opacity: 0.25;
+    opacity: 0.4;
   }
 
   .f img, .g img {
-    opacity: 0.1;
+    opacity: 0.4;
     height: 720px;
   }
 
@@ -501,28 +640,61 @@ footer img {
 /* Gallery */
 
   .a2 {
-    background-image: url(../img/House-Immigration-4-Dummies.jpg);
-    width: calc(50% - 0.5rem);
+    width: 100%;
     height: 20rem;
-    margin-right: 2rem;
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-color: var(--white);
   }
 
   .b2 {
-    background-image: url(../img/Pond-Immigration-4-Dummies.jpg);
-    width: calc(50% - 0.5rem);
+    width: 20rem;
     height: 20rem;
   }
 
   .c2 {
     height: 20rem;
+    width: calc(100% - 20rem);
+  }
+
+  /* Download */
+
+  .download .content {
+    width: 80%;
+  }
+
+  .img-txt {
+    display: block;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  .img-txt img, .txt {
+    display: block;
+    padding: 3rem;
+    width: 100%;
+  }
+
+  .img-txt p {
+    border-left: none;
+    text-align: center;
+  }
+
+  .download .txt {
+    border-left: none;
+    padding-top: 0;
+  }
+
+  .download .txt::before {
+    content: ""; /* This is necessary for the pseudo element to work. */
+    display: block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; /* This will center the border. */
+    width: 50%; /* Change this to whatever width you want. */
+    padding-top: 40px; /* This creates some space between the element and the border. */
+    border-top: 3px dotted var(--black-opacity); /* This creates the border. Replace black with whatever color you want. */
   }
 }
 
-@media only screen and (min-width: 420px) and (max-width: 768px) {
+
+
+@media only screen and (min-width: 520px) and (max-width: 768px) {
 
 /* Portrait iPad */
 
@@ -545,11 +717,12 @@ footer img {
   h2 {
     font-size: 2rem;
     line-height: 2.5rem;
+    padding-bottom: 1rem;
   }
 
   h3 {
-    font-size: 1.75rem;
-    line-height: 2.5rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 
   h4 {
@@ -558,9 +731,9 @@ footer img {
   }
 
   h5 {
-    font-size: 2.4vw;
-    line-height: 4vw;
-    letter-spacing: 4px;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    letter-spacing: 0.25rem;
   }
 
   p, a {
@@ -569,6 +742,10 @@ footer img {
   }
 
 /* Hero */
+
+  #br-1 {
+    display: none;
+  }
 
   #grid-wrap {
     height: 660px;
@@ -646,12 +823,11 @@ footer img {
     width: 100%;
     height: 20rem;
     margin-right: 0;
-    margin-bottom: 1rem;
+    margin-top: 1rem;
     background-position: left center;
   }
 
-  .a2 {
-    background-image: url(../img/House-Immigration-4-Dummies.jpg);
+  .b2 {
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -674,9 +850,46 @@ footer .content {
     float: none;
     top: 0;
   }
+
+  /* Download */
+
+  .download .content {
+    width: 80%;
+  }
+
+  .img-txt {
+    display: block;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  .img-txt img, .txt {
+    display: block;
+    padding: 3rem;
+    width: 100%;
+  }
+
+  .img-txt p {
+    border-left: none;
+    text-align: center;
+  }
+
+  .download .txt {
+    border-left: none;
+    padding-top: 0;
+  }
+
+  .download .txt::before {
+    content: ""; /* This is necessary for the pseudo element to work. */
+    display: block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; /* This will center the border. */
+    width: 50%; /* Change this to whatever width you want. */
+    padding-top: 40px; /* This creates some space between the element and the border. */
+    border-top: 3px dotted var(--black-opacity); /* This creates the border. Replace black with whatever color you want. */
+  }
 }
 
-@media only screen and (min-width: 320px) and (max-width: 420px) {
+@media only screen and (min-width: 320px) and (max-width: 520px) {
 
 /* Smartphones */
 
@@ -692,18 +905,20 @@ footer .content {
 /* Typography */
 
   h1 {
-    font-size: 13vw;
+    font-size: 12vw;
     line-height: 15vw;
   }
 
   h2 {
     font-size: 2rem;
     line-height: 2.5rem;
+    padding: 1rem 0;
   }
 
   h3 {
-    font-size: 1.75rem;
-    line-height: 2.5rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-top: -3rem;
   }
 
   h4 {
@@ -712,9 +927,13 @@ footer .content {
   }
 
   h5 {
-    font-size: 2.6vw;
-    line-height: 4vw;
+    font-size: 0.8rem;
+    line-height: 1rem;
     letter-spacing: 4px;
+  }
+
+  #show-hide {
+    display: none;
   }
 
   p, a {
@@ -763,7 +982,6 @@ footer .content {
     padding: 0.75rem;
   }
 
-
 /* Button */
 
   #outline-btn {
@@ -800,12 +1018,11 @@ footer .content {
     width: 100%;
     height: 20rem;
     margin-right: 0;
-    margin-bottom: 1rem;
+    margin-top: 1rem;
     background-position: left center;
   }
 
-  .a2 {
-    background-image: url(../img/House-Immigration-4-Dummies.jpg);
+  .b2 {
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -828,6 +1045,52 @@ footer .content {
     float: none;
     top: 0;
   }
+
+  /* Download */
+
+  .download .content {
+    margin: 3em 1em 9em 1em;
+  }
+
+
+  .img-txt {
+    display: block;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  .img-txt img, .txt {
+    display: block;
+    width: 100%;
+  }
+
+  .img-txt img {
+    padding: 1rem;
+  }
+
+  .img-txt p {
+    border-left: none;
+    text-align: center;
+  }
+
+  .download .txt {
+    border-left: none;
+    padding: 0 1rem 2rem 1rem;
+  }
+
+  .download .txt::before {
+    content: ""; /* This is necessary for the pseudo element to work. */
+    display: block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; /* This will center the border. */
+    width: 50%; /* Change this to whatever width you want. */
+    padding-top: 40px; /* This creates some space between the element and the border. */
+    border-top: 3px dotted var(--black-opacity); /* This creates the border. Replace black with whatever color you want. */
+  }
+
+  .download h4 {
+    font-size: 1.25rem;
+  }
+
 }
 
 @media only screen and (max-width: 320px) {
@@ -853,6 +1116,7 @@ footer .content {
   h2 {
     font-size: 1.75rem;
     line-height: 2.25rem;
+    padding: 1rem 0;
   }
 
   h3 {
@@ -860,15 +1124,20 @@ footer .content {
     line-height: 1.75rem;
   }
 
+
   h4 {
-    font-size: 0.8rem;
-    line-height: 1.5rem;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 
   h5 {
-    font-size: 2.4vw;
-    line-height: 4vw;
+    font-size: 0.8rem;
+    line-height: 1rem;
     letter-spacing: 4px;
+  }
+
+  #show-hide {
+    display: none;
   }
 
   p, a {
@@ -969,7 +1238,7 @@ footer .content {
     width: 100%;
     height: 16rem;
     margin-right: 0;
-    margin-bottom: 1rem;
+    margin-top: 1rem;
     background-position: left center;
   }
 
@@ -1054,7 +1323,7 @@ footer .content {
     }
 }
 
-/* Hero Text Animation
+/* Hero Butterfly Animation
    ========================================================================== */
 
 .distort-img {
@@ -1120,3 +1389,121 @@ footer .content {
 
   }
 }
+
+/* Lightbox
+   ========================================================================== */
+
+   /* The Modal (background) */
+   .modal {
+     display: none;
+     position: fixed;
+     z-index: 1;
+     padding-top: 100px;
+     left: 0;
+     top: 0;
+     width: 100%;
+     height: 100%;
+     overflow: auto;
+     background-color: black;
+   }
+
+   /* Modal Content */
+
+   .modal-content {
+     position: relative;
+     margin: auto;
+     padding: 0;
+     width: 90%;
+     max-width: 1200px;
+   }
+
+   /* The Close Button */
+   .close {
+     color: white;
+     position: absolute;
+     top: 16px;
+     right: 24px;
+     font-size: 36px;
+     font-weight: bold;
+   }
+
+   .close:hover,
+   .close:focus {
+     color: #999;
+     text-decoration: none;
+     cursor: pointer;
+   }
+
+   /* Hide the slides by default */
+   .mySlides {
+     display: none;
+   }
+
+   /* Next & previous buttons */
+   .prev,
+   .next {
+     cursor: pointer;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     position: absolute;
+     top: 50%;
+     padding: 16px;
+     transition: 0.6s ease;
+     user-select: none;
+     -webkit-user-select: none;
+     fill: var(--white);
+     border-radius: 100%;
+     background-color: var(--black);
+     margin: 0 -36px;
+   }
+
+   /* Position the "next button" to the right */
+   .next {
+     right: 0;
+   }
+
+   /* On hover, add a black background color with a little bit see-through */
+   .prev:hover,
+   .next:hover {
+     background-color: var(--yellow);
+   }
+
+   .prev:hover svg,
+   .next:hover svg {
+     fill: var(--black);
+   }
+
+   /* Number text (1/3 etc) */
+   .numbertext {
+     color: var(--white);
+     font-size: 16px;
+     padding: 8px 16px;
+     position: relative;
+     margin: 0 auto;
+   }
+
+   /* Caption text */
+   .caption-container {
+     text-align: center;
+     background-color: black;
+     padding: 2px 16px;
+     color: white;
+   }
+
+   img.demo {
+     opacity: 0.6;
+   }
+
+   .active,
+   .demo:hover {
+     opacity: 1;
+   }
+
+   img.hover-shadow {
+     transition: 0.3s;
+   }
+
+   .hover-shadow:hover {
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   }

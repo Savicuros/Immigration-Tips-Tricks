@@ -2,7 +2,7 @@
 <html>
   <head>
     <link rel="shortcut icon" type="image/png" href="img/Favicon@2x.png"/>
-    <title>Immigration for Dummies</title>
+    <title>Immigration Tips & Tricks</title>
     <meta charset="utf-8"/>
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -11,6 +11,53 @@
     <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Libre+Franklin+100,300,800" rel="stylesheet">
+    <style>
+        html {
+          scroll-behavior: smooth;
+        }
+    </style>
+    <script>
+      // Open the Modal
+      function openModal() {
+        document.getElementById('myModal').style.display = "block";
+      }
+
+      // Close the Modal
+      function closeModal() {
+        document.getElementById('myModal').style.display = "none";
+      }
+
+      var slideIndex = 1;
+      showSlides(slideIndex);
+
+      // Next/previous controls
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+
+      // Thumbnail image controls
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
+
+      function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("demo");
+        var captionText = document.getElementById("caption");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        captionText.innerHTML = dots[slideIndex-1].alt;
+      }
+    </script>
   </head>
   <body>
     <div class="hero">
@@ -22,50 +69,109 @@
             <div class="box c"></div>
             <div class="box d"><img src="img/bug-wings.png"/></div>
             <div class="box e"><img src="img/potato-beetle.png"/></div>
-            <div class="box f distort-img"><img src="img/Butterfly_red.png"/></div>
-            <div class="box g"><img src="img/Butterfly.png"/></div>
-            <div class="box h"><img src="img/Ruler.png"/></div>
-            <div class="box i"><img src="img/outline-email-24px.svg" class="hvr-grow distort-btn"/></div>
+            <div class="box f distort-img"><img src="img/butterfly_red.png"/></div>
+            <div class="box g"><img src="img/butterfly.png"/></div>
+            <div class="box h"><img src="img/ruler.png"/></div>
+            <div class="box i"><a href="mailto:design@urossavic.com?subject= Immigration Tips & Tricks Inquiry"><img src="img/outline-email-24px.svg" class="hvr-grow"/></a></div>
           </div>
         </div>
       </div>
       <div class="content" id="hero-text-btn">
-        <h5>• Illustrated Guidebook •</h5>
-        <h1 class="distort-text">Immigration</br>4 Dummies</h1>
-        <h4>How to deal with <span id="header-span"><em>different cultures</em></span> in era of globalization?</h4>
-        <a class="button hvr-grow distort-btn" id="outline-btn" href="#learn-more">Learn more</a>
+        <h5><span id="show-hide">•</span> Illustrated Guidebook <span id="show-hide">•</h5>
+        <h1 class="distort-text">Immigration</br>Tips & Tricks</h1>
+        <h4>How to deal with <br id="br-1"><span id="marker"><em>different cultures</em> <br id="br-2"></span> in the era of globalization?</h4>
+        <a class="button hvr-grow" href="#anchor">Go to download</a>
       </div>
     </div>
     <div class="text">
         <div class="content">
           <img src="img/ornament.png"/>
 
-          <h2 id="learn-more">You have prejudices, and that is <span><em>normal.</em></span></h2>
+          <h2>You have prejudices, and that is <span id="marker"><em>normal.</em></span></h2>
 
-          <p><strong>Hermit Crab</strong> (lat. <em>Paguroidea</em>) is a quite fragile creature.
-          Unlike his relatives - crabs and lobsters - he doesn’t have his own shell.
-          Instead, he inhabits an empty gastropod shell in his surroundings to get protection.
-          The shell will bring him safety, of course, but after some time it will prevent his further growth.
-          As it becomes too small for his body, hermit crab has to move out, leaving safety to search for a new home.</p>
+          <p><strong><em>Homo Erectus</em></strong> migrated out of Africa to Eurasia around 1.8 million years ago.
+            Ever since, humanity followed in his footsteps. The reasons for moving may differ - fleeing from a war zone,
+            going for education, pursuing a career or just feeding our curiosity. Different scenarios,
+            but one thing in common - we’re all hoping for an improvement.</p>
 
-          <p><strong>Hermit Crab</strong> (lat. <em>Paguroidea</em>) is a quite fragile creature.
-          Unlike his relatives - crabs and lobsters - he doesn’t have his own shell.
-          Instead, he inhabits an empty gastropod shell in his surroundings to get protection.
-          The shell will bring him safety, of course, but after some time it will prevent his further growth.
-          As it becomes too small for his body, hermit crab has to move out, leaving safety to search for a new home.</p>
+          <p>Once we get there, our expectations get more concrete. The first thing that we desperately
+            need is to be accepted, but that  is very hard to achieve. A wall of prejudices stands in front of us,
+            making most of our social skills worthless. We need to adapt and to do it fast! But how?</p>
 
+          <p>Well, for start - <strong>by reading <a href="#anchor">this book</a></strong>.</p>
       </div>
     </div>
     <div class="gallery">
       <div class="content">
-        <h2>Unique fusion of artwork and writting.</h2>
-        <h3>• Artwork and content preview •</span></h3>
-          <div id="image-row">
-            <div class="img-gallery a2"></div>
-            <div class="img-gallery b2"></div>
+        <h2>A fusion of visual art and storytelling</h2>
+        <h3><span id="show-hide">•</span> Click on images for a content preview <span id="show-hide">•</span></h3>
+            <div class="img-gallery a2">
+              <div class="img-overlay" onclick="openModal();currentSlide(1)">
+                <div><svg class="icon-gallery" viewBox="0 0 24 24">
+                  <path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
+                  </svg><h5>Preview</h5></div>
+              </div>
+            </div>
+            <div id="image-row">
+              <div class="img-gallery b2" onclick="openModal();currentSlide(2)">
+                <div class="img-overlay">
+                  <div><svg class="icon-gallery" viewBox="0 0 24 24">
+                    <path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
+                    </svg><h5>Preview</h5></div>
+                </div>
+              </div>
+              <div class="img-gallery c2" onclick="openModal();currentSlide(3)">
+                <div class="img-overlay">
+                  <div><svg class="icon-gallery" viewBox="0 0 24 24">
+                    <path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
+                    </svg><h5>Preview</h5></div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="img-gallery c2"></div>
       </div>
+    <div class="download">
+      <div class="content">
+        <h2 id="anchor" style="padding-top: 40px; margin-top: -40px;">You're Welcome!</h2>
+        <h3><span id="show-hide">•</span> We're offering this book for free <span id="show-hide">•</span></h3>
+        <div class="img-txt">
+            <img src="img/Immigration_4_Dummies_cover.jpg">
+          <div class="txt">
+            <p id="p1">In return we want your feedback, thoughts and impressions. Send us an email, tell us what you think.</p>
+            <p id="p2">Share it, spread the word.</p>
+          </div>
+        </div>
+        <a href="I4D_ENG_Web.pdf" class="button hvr-grow" download="I4D_ENG_Web.pdf">Download free PDF</a>
+        <h4>...and if you really, really like it,<br>feel free to drop us a nickel.</h4>
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+              <input type="hidden" name="cmd" value="_donations" />
+              <input type="hidden" name="business" value="design@urossavic.com" />
+              <input type="hidden" name="currency_code" value="CHF" />
+              <input type="image" src="https://www.paypalobjects.com/en_US/CH/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+              <img alt="" border="0" src="https://www.paypal.com/en_CH/i/scr/pixel.gif" width="1" height="1" />
+            </form>
+      </div>
+    </div>
+    <div class="share-links">
+      <div class="content">
+      <h3>Spread the word, share with friends</h3>
+      <div class="icon-bar">
+          <a href="http://www.facebook.com/sharer.php?u=https://urossavic.com" target="_blank" class="facebook"><svg viewBox="0 0 24 24">
+            <path d="M17,2V2H17V6H15C14.31,6 14,6.81 14,7.5V10H14L17,10V14H14V22H10V14H7V10H10V6A4,4 0 0,1 14,2H17Z" />
+            </svg></a>
+          <a href="https://twitter.com/share?url=https://urossavic.com&amp;hashtags=immigration,artbook" target="_blank"
+            class="twitter"><svg viewBox="0 0 24 24">
+            <path d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z" />
+            </svg></a>
+          <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://urossavic.com"
+            target="_blank" class="linkedin"><svg viewBox="0 0 24 24">
+            <path d="M21,21H17V14.25C17,13.19 15.81,12.31 14.75,12.31C13.69,12.31 13,13.19 13,14.25V21H9V9H13V11C13.66,9.93 15.36,9.24 16.5,9.24C19,9.24 21,11.28 21,13.75V21M7,21H3V9H7V21M5,3A2,2 0 0,1 7,5A2,2 0 0,1 5,7A2,2 0 0,1 3,5A2,2 0 0,1 5,3Z" />
+            </svg></a>
+          <a href="http://reddit.com/submit?url=https://urossavic.com;title=Immigration Tips & Tricks" target="_blank" class="reddit"><svg viewBox="0 0 24 24">
+            <path d="M22,11.5C22,10.1 20.9,9 19.5,9C18.9,9 18.3,9.2 17.9,9.6C16.4,8.7 14.6,8.1 12.5,8L13.6,4L17,5A2,2 0 0,0 19,7A2,2 0 0,0 21,5A2,2 0 0,0 19,3C18.3,3 17.6,3.4 17.3,4L13.3,3C13,2.9 12.8,3.1 12.7,3.4L11.5,8C9.5,8.1 7.6,8.7 6.1,9.6C5.7,9.2 5.1,9 4.5,9C3.1,9 2,10.1 2,11.5C2,12.4 2.4,13.1 3.1,13.6L3,14.5C3,18.1 7,21 12,21C17,21 21,18.1 21,14.5L20.9,13.6C21.6,13.1 22,12.4 22,11.5M9,11.8C9.7,11.8 10.2,12.4 10.2,13C10.2,13.6 9.7,14.2 9,14.2C8.3,14.2 7.8,13.7 7.8,13C7.8,12.3 8.3,11.8 9,11.8M15.8,17.2C14,18.3 10,18.3 8.2,17.2C8,17 7.9,16.7 8.1,16.5C8.3,16.3 8.6,16.2 8.8,16.4C10,17.3 14,17.3 15.2,16.4C15.4,16.2 15.7,16.3 15.9,16.5C16.1,16.7 16,17 15.8,17.2M15,14.2C14.3,14.2 13.8,13.6 13.8,13C13.8,12.3 14.4,11.8 15,11.8C15.7,11.8 16.2,12.4 16.2,13C16.2,13.7 15.7,14.2 15,14.2Z" />
+          </svg></a>
+        </div>
+    </div>
     </div>
     <footer>
       <div class="content">
@@ -77,5 +183,40 @@
         </div>
       </div>
     </footer>
+    <!-- The Modal/Lightbox -->
+    <div id="myModal" class="modal">
+      <span class="close cursor" onclick="closeModal()">&times;</span>
+      <div class="modal-content">
+
+        <div class="mySlides">
+          <div class="numbertext">1 / 3</div>
+          <img src="img/welcome_page.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+          <div class="numbertext">2 / 3</div>
+          <img src="img/housing_page.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+          <div class="numbertext">3 / 3</div>
+          <img src="img/pond_page.jpg" style="width:100%">
+        </div>
+
+        <!-- Next/previous controls -->
+        <a class="prev" onclick="plusSlides(-1)"><svg style="width:36px;height:36px" viewBox="0 0 24 24">
+          <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
+      </svg></a>
+        <a class="next" onclick="plusSlides(1)"><svg style="width:36px;height:36px" viewBox="0 0 24 24">
+          <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" />
+      </svg></a>
+
+        <!-- Caption text -->
+        <div class="caption-container">
+          <p id="caption"></p>
+        </div>
+
+      </div>
+    </div>
   </body>
 </html>
